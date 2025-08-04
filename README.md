@@ -11,7 +11,8 @@ Created for the **GMTK Game Jam 2025**.
 - Drag and drop components to craft unique jewelry
 - Complete orders based on customer requests
 
-## ▶️ How to Play
+## ▶️ Play the Game:
+	https://lunartik.itch.io/loopsmith
 
 ### Controls
 - **Mouse / Touch**: Drag and place components  
