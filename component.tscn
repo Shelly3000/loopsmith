@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://p3phhvlp55fw"]
+
+[ext_resource type="Script" uid="uid://cd7j1hsxy62v2" path="res://physics_object.gd" id="1_vwh44"]
+[ext_resource type="AudioStream" uid="uid://0wbs0v0j3r52" path="res://Assets/sound/zapsplat_impacts_metal_thin_bar_hit_with_metal_002_17191.mp3" id="2_cyri3"]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_mask = 129
+mass = 20.0
+script = ExtResource("1_vwh44")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_cyri3")

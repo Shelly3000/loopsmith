@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://b6mnd7xd8cicy"]
+
+[ext_resource type="Texture2D" uid="uid://dyqxoaevyfahe" path="res://Assets/seller.png" id="1_4sra1"]
+[ext_resource type="Script" uid="uid://s3ufvjr1wlut" path="res://seller.gd" id="1_gks3k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gks3k"]
+size = Vector2(105, 56)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4sra1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gks3k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ywl65"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p0ylo"]
+
+[node name="Seller" type="StaticBody2D"]
+script = ExtResource("1_gks3k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4sra1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-147, 82, -170, 12, -162, -59, -156, -66, -136, -13, -126, 2, -94, -1, 54, -11, 77, -14, 91, -26, 93, -33, 100, -18, 90, 62, 87, 67, -140, 86)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-27.5, -41)
+shape = SubResource("RectangleShape2D_gks3k")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 29.0
+offset_top = -73.0
+offset_right = 72.0
+offset_bottom = -28.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4sra1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gks3k")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ywl65")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_p0ylo")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

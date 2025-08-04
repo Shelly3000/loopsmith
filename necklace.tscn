@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://qxwf21llln1f"]
+
+[ext_resource type="Script" uid="uid://cd7j1hsxy62v2" path="res://physics_object.gd" id="1_a6dux"]
+[ext_resource type="Texture2D" uid="uid://elr536br86ge" path="res://Assets/necklace_base.png" id="1_yefxy"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a6dux"]
+
+[node name="necklace" type="RigidBody2D"]
+script = ExtResource("1_a6dux")
+
+[node name="base" type="Sprite2D" parent="."]
+texture = ExtResource("1_yefxy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("CompressedTexture2D_a6dux")

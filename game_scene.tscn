@@ -1,0 +1,333 @@
+[gd_scene load_steps=29 format=3 uid="uid://b1bekx7pr5yh7"]
+
+[ext_resource type="Script" uid="uid://bq0ktlttr6fsn" path="res://game_scene.gd" id="1_mlf6e"]
+[ext_resource type="Script" uid="uid://dxxmefh761twt" path="res://customer.gd" id="2_mj2jn"]
+[ext_resource type="Texture2D" uid="uid://vc1cqx5f4dly" path="res://Assets/people/man1-export.png" id="3_h5hfs"]
+[ext_resource type="Texture2D" uid="uid://de74ybl2nddvi" path="res://Assets/desk.png" id="4_1wc4g"]
+[ext_resource type="Texture2D" uid="uid://fp8awdvu2ohy" path="res://Assets/shelf.png" id="4_kdryc"]
+[ext_resource type="Script" uid="uid://bexcwoaxqdqjm" path="res://shelf.gd" id="4_mlphb"]
+[ext_resource type="Texture2D" uid="uid://ccnpinhw80mtd" path="res://Assets/gold.png" id="5_6e45b"]
+[ext_resource type="Texture2D" uid="uid://cp23iur68nrn" path="res://Assets/silver.png" id="6_udeyl"]
+[ext_resource type="Texture2D" uid="uid://p5jloeiqfa3p" path="res://Assets/bronze.png" id="7_miq82"]
+[ext_resource type="Texture2D" uid="uid://bdqe5w26cuhtp" path="res://Assets/lapis.png" id="8_j5hk1"]
+[ext_resource type="Texture2D" uid="uid://1b8lpkxvbswp" path="res://Assets/carnelian.png" id="9_daj04"]
+[ext_resource type="Texture2D" uid="uid://cck043vxwxgj1" path="res://Assets/turquoise.png" id="10_mlphb"]
+[ext_resource type="Texture2D" uid="uid://b3lxniwdal0oi" path="res://Assets/glass.png" id="11_opqoc"]
+[ext_resource type="Texture2D" uid="uid://c168psrj8mhjk" path="res://Assets/amethyst.png" id="12_bpcsf"]
+[ext_resource type="PackedScene" uid="uid://d3dshxvsoskwc" path="res://gem_adder.tscn" id="15_bpcsf"]
+[ext_resource type="AudioStream" uid="uid://br6ol6r4ty8dx" path="res://Assets/sound/zapsplat_foley_metal_bar_small_clunk_hit_003_61931.mp3" id="16_snaye"]
+[ext_resource type="PackedScene" uid="uid://b6mnd7xd8cicy" path="res://seller.tscn" id="17_3d2pr"]
+[ext_resource type="Texture2D" uid="uid://c6247itxrva0t" path="res://Assets/coin.png" id="17_h5hfs"]
+[ext_resource type="PackedScene" uid="uid://b2h8lauor8h4o" path="res://Tools/mold.tscn" id="18_h5hfs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_po0ka"]
+bg_color = Color(0.345825, 0.670553, 0.590131, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mj2jn"]
+size = Vector2(224, 670)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mixcd"]
+size = Vector2(1920, 280)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v1wow"]
+bg_color = Color(0.866658, 0.43601, 0.621212, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e35lh"]
+size = Vector2(106, 101)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_opqoc"]
+size = Vector2(120, 1080)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mlf6e"]
+bg_color = Color(0.396542, 0.269508, 0.132642, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mlphb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bpcsf"]
+size = Vector2(200, 200)
+
+[node name="GameScene" type="Node2D"]
+script = ExtResource("1_mlf6e")
+metadata/_edit_vertical_guides_ = [5459.0]
+
+[node name="Shopfront" type="Node2D" parent="."]
+
+[node name="Control" type="Control" parent="Shopfront"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="Shopfront/Control"]
+z_index = -999
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_po0ka")
+
+[node name="Customer" type="Node2D" parent="Shopfront"]
+z_index = -1
+position = Vector2(543, 700)
+script = ExtResource("2_mj2jn")
+move_duration = 2.655
+bobbing_amplitude = 4.62
+bobbing_frequency = 2.465
+
+[node name="Sprite2D" type="Sprite2D" parent="Shopfront/Customer"]
+texture = ExtResource("3_h5hfs")
+
+[node name="Area2D" type="Area2D" parent="Shopfront/Customer/Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shopfront/Customer/Sprite2D/Area2D"]
+position = Vector2(10, -41)
+shape = SubResource("RectangleShape2D_mj2jn")
+
+[node name="Timer" type="Timer" parent="Shopfront/Customer"]
+
+[node name="Desk" type="StaticBody2D" parent="Shopfront"]
+z_index = -1
+position = Vector2(0, 800)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shopfront/Desk"]
+position = Vector2(960, 140)
+shape = SubResource("RectangleShape2D_mixcd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Shopfront/Desk"]
+position = Vector2(960, 140)
+texture = ExtResource("4_1wc4g")
+
+[node name="Seller" parent="Shopfront" instance=ExtResource("17_3d2pr")]
+z_index = -1
+position = Vector2(1235, 758)
+scale = Vector2(2, 2)
+
+[node name="Workfront" type="Node2D" parent="."]
+position = Vector2(1920, 0)
+
+[node name="Control" type="Control" parent="Workfront"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="Workfront/Control"]
+z_index = -999
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v1wow")
+
+[node name="Shelf" type="Node2D" parent="Workfront"]
+position = Vector2(1620, 448)
+script = ExtResource("4_mlphb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Workfront/Shelf"]
+position = Vector2(0, -31)
+scale = Vector2(1.391, 1.391)
+texture = ExtResource("4_kdryc")
+
+[node name="shelf1" type="Area2D" parent="Workfront/Shelf"]
+position = Vector2(-78, -286)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Workfront/Shelf/shelf1"]
+shape = SubResource("RectangleShape2D_e35lh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Workfront/Shelf/shelf1"]
+texture = ExtResource("5_6e45b")
+
+[node name="shelf2" type="Area2D" parent="Workfront/Shelf"]
+position = Vector2(80, -285)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Workfront/Shelf/shelf2"]
+shape = SubResource("RectangleShape2D_e35lh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Workfront/Shelf/shelf2"]
+texture = ExtResource("6_udeyl")
+
+[node name="shelf3" type="Area2D" parent="Workfront/Shelf"]
+position = Vector2(-74, -107)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Workfront/Shelf/shelf3"]
+shape = SubResource("RectangleShape2D_e35lh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Workfront/Shelf/shelf3"]
+texture = ExtResource("7_miq82")
+
+[node name="shelf4" type="Area2D" parent="Workfront/Shelf"]
+position = Vector2(85, -107)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Workfront/Shelf/shelf4"]
+shape = SubResource("RectangleShape2D_e35lh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Workfront/Shelf/shelf4"]
+position = Vector2(0, -1)
+texture = ExtResource("8_j5hk1")
+
+[node name="shelf5" type="Area2D" parent="Workfront/Shelf"]
+position = Vector2(-78, 79)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Workfront/Shelf/shelf5"]
+shape = SubResource("RectangleShape2D_e35lh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Workfront/Shelf/shelf5"]
+texture = ExtResource("9_daj04")
+
+[node name="shelf6" type="Area2D" parent="Workfront/Shelf"]
+position = Vector2(83, 63)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Workfront/Shelf/shelf6"]
+shape = SubResource("RectangleShape2D_e35lh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Workfront/Shelf/shelf6"]
+texture = ExtResource("10_mlphb")
+
+[node name="shelf7" type="Area2D" parent="Workfront/Shelf"]
+position = Vector2(-78, 240)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Workfront/Shelf/shelf7"]
+shape = SubResource("RectangleShape2D_e35lh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Workfront/Shelf/shelf7"]
+texture = ExtResource("11_opqoc")
+
+[node name="shelf8" type="Area2D" parent="Workfront/Shelf"]
+position = Vector2(87, 233)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Workfront/Shelf/shelf8"]
+shape = SubResource("RectangleShape2D_e35lh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Workfront/Shelf/shelf8"]
+texture = ExtResource("12_bpcsf")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Workfront/Shelf"]
+stream = ExtResource("16_snaye")
+
+[node name="Desk" type="StaticBody2D" parent="Workfront"]
+z_index = -998
+position = Vector2(0, 800)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Workfront/Desk"]
+position = Vector2(960, 140)
+shape = SubResource("RectangleShape2D_mixcd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Workfront/Desk"]
+position = Vector2(960, 140)
+texture = ExtResource("4_1wc4g")
+
+[node name="Ingredients" type="Node2D" parent="Workfront"]
+
+[node name="Products" type="Node2D" parent="Workfront"]
+
+[node name="Mold" parent="Workfront" instance=ExtResource("18_h5hfs")]
+position = Vector2(504, 806)
+
+[node name="GemAdder" parent="Workfront" instance=ExtResource("15_bpcsf")]
+position = Vector2(1178, 255)
+
+[node name="mainUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 3280.0
+offset_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="switch_button" type="Button" parent="mainUI"]
+visible = false
+layout_mode = 0
+offset_left = 1770.0
+offset_right = 2070.0
+offset_bottom = 1080.0
+mouse_default_cursor_shape = 2
+
+[node name="Area2D" type="Area2D" parent="mainUI"]
+position = Vector2(1920, 540)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mainUI/Area2D"]
+shape = SubResource("RectangleShape2D_opqoc")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="PermUI" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="Camera2D/PermUI"]
+layout_mode = 0
+offset_right = 122.0
+offset_bottom = 86.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mlf6e")
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/PermUI"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 39.0
+offset_right = 81.0
+offset_bottom = 79.0
+texture = ExtResource("17_h5hfs")
+
+[node name="Money" type="RichTextLabel" parent="Camera2D/PermUI"]
+layout_mode = 2
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 117.0
+offset_bottom = 45.0
+theme_override_font_sizes/normal_font_size = 28
+text = "0"
+horizontal_alignment = 1
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D"]
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_mlphb")
+one_way_collision = true
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D2"]
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_mlphb")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Walls"]
+position = Vector2(3840, 801)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+shape = SubResource("WorldBoundaryShape2D_mlphb")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Walls"]
+position = Vector2(3840, 801)
+rotation = -1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D4"]
+shape = SubResource("WorldBoundaryShape2D_mlphb")
+one_way_collision = true
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Walls"]
+position = Vector2(1920, 898)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D5"]
+rotation = 0.785398
+shape = SubResource("RectangleShape2D_bpcsf")
+
+[connection signal="input_event" from="Shopfront/Customer/Sprite2D/Area2D" to="." method="_on_customer_input_event"]
+[connection signal="pressed" from="mainUI/switch_button" to="." method="_on_switch_button_pressed"]
+[connection signal="mouse_entered" from="mainUI/Area2D" to="." method="_on_area_2d_mouse_entered"]

@@ -1,0 +1,90 @@
+{
+  "egypt": {
+	"openers": [
+	  "Greetings,",
+	  "Hello there,",
+	  "Good day,",
+	  "Pardon me,",
+	  "Hi,",
+	  "Ah, hello,",
+	  "Good to see you,",
+	  "Lovely day,",
+	  "Excuse me,",
+	  "Dear friend,",
+	  "Warm greetings,"
+	],
+	"reason": [
+  {"start": "I’m looking for something special.", "end": "It needs to be something special."},
+  {"start": "I need a new piece for my collection.", "end": "It will join my collection."},
+  {"start": "I want to find something unique.", "end": "Something unique would be best."},
+  {"start": "I’m searching for a quality item.", "end": "It must be of good quality."},
+  {"start": "I hope to find a beautiful piece.", "end": "Beauty is important to me."},
+  {"start": "I want something crafted with care.", "end": "Craftsmanship matters greatly."},
+  {"start": "I’m interested in something well made.", "end": "It should be well made."},
+  {"start": "I want a piece that feels right.", "end": "It has to feel just right."},
+  {"start": "I’m looking for a gift.", "end": "It’s meant as a gift."},
+  {"start": "I need something for a special occasion.", "end": "It’s for a special occasion."},
+  {"start": "I’m searching for a meaningful item.", "end": "It must have meaning."},
+  {"start": "I want something practical yet pleasing.", "end": "Practicality and beauty are needed."},
+  {"start": "I hope to find a lasting piece.", "end": "It should last a long time."},
+  {"start": "I want to honor tradition.", "end": "Honoring tradition is important."},
+  {"start": "I’m looking for a handmade piece.", "end": "Handmade is preferable."},
+  {"start": "I want something that tells a story.", "end": "A story behind it would be nice."},
+  {"start": "I’m seeking an item with character.", "end": "Character makes it special."},
+  {"start": "I want a piece that stands out.", "end": "It should stand out among others."},
+  {"start": "I’m looking for something fitting and proper.", "end": "It must be fitting and proper."}
+],
+	"type": [
+	  {"id": 3, "text": "bracelet"},
+	  {"id": 4, "text": "necklace"},
+	  {"id": 1, "text": "ring"},
+	  {"id": 2, "text": "charm"}
+	],
+	"base_specifics": [
+	  {"id": 0, "text": "made of gold"},
+	  {"id": 0, "text": "crafted from gold"},
+	  {"id": 0, "text": "created with gold"},
+	  {"id": 1, "text": "made of silver"},
+	  {"id": 1, "text": "crafted from silver"},
+	  {"id": 1, "text": "created with silver"},
+	  {"id": 2, "text": "made of bronze"},
+	  {"id": 2, "text": "crafted from bronze"},
+	  {"id": 2, "text": "created with bronze"},
+	],"gem_specifics": [
+  {"id": 3, "text": "lapis lazuli"},
+  {"id": 5, "text": "turquoise"},
+  {"id": 4, "text": "carnelian"},
+  {"id": 6, "text": "glass"},
+  {"id": 7, "text": "amethyst"}
+],
+"gem_prefixes": [
+  "inlaid with",
+  "adorned with",
+  "set with",
+  "decorated with",
+  "featuring"
+],
+	"transitions": [
+  "Could I get",
+  "I'd love to see",
+  "Do you have",
+  "Can you show me",
+  "Might I request",
+  "Would you have",
+  "Is there",
+  "Do you offer",
+  "May I inquire about",
+  "Might you have",
+  "Could you provide",
+  "Would it be possible to see",
+  "Can I have",
+  "Would you mind showing me",
+  "Is there a",
+  "Could you prepare",
+  "Might I take a look at",
+  "Would you show me",
+  "Please let me see",
+  "I'm interested in"
+]
+  }
+}

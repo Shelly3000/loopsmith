@@ -1,0 +1,64 @@
+[gd_scene load_steps=11 format=3 uid="uid://b2h8lauor8h4o"]
+
+[ext_resource type="Script" uid="uid://ch3qvcfmk3mmb" path="res://Tools/mold.gd" id="1_ocobg"]
+[ext_resource type="Texture2D" uid="uid://cnlw2mpy1mgdd" path="res://Assets/mold.png" id="2_6a0um"]
+[ext_resource type="Texture2D" uid="uid://ceajwakan8jif" path="res://Assets/mold_background_unlit.png" id="3_6a0um"]
+[ext_resource type="AudioStream" uid="uid://dpbgshbngq16g" path="res://Assets/sound/zapsplat_nature_fire_flame_small_sudden_short_blow_burn_004_96016.mp3" id="4_dcimr"]
+[ext_resource type="AudioStream" uid="uid://c4o6saw8kdrht" path="res://Assets/sound/zapsplat_foley_water_pour_onto_very_hot_metal_surface_sizzle_bubble_spit_steam_004_111208.mp3" id="5_041fe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6a0um"]
+size = Vector2(181, 11)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6a0um"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6a0um"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dcimr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_041fe"]
+
+[node name="Mold" type="StaticBody2D"]
+script = ExtResource("1_ocobg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 5
+texture = ExtResource("2_6a0um")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(14, 5)
+shape = SubResource("RectangleShape2D_6a0um")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("3_6a0um")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-173, 37)
+polygon = PackedVector2Array(-51, -85, -22, -134, 9, -187, 31, -213, 66, -233, 95, -235, 83, -175, 72, -62, 81, -32, 109, -16, 287, -29, 325, -84, 323, -149, 331, -195, 314, -242, 329, -253, 352, -206, 371, -145, 405, -63, 393, -43, 395, 85, 387, 103, -67, 168, -76, 137)
+
+[node name="Button" type="Button" parent="."]
+offset_left = -150.0
+offset_top = 97.0
+offset_right = 152.0
+offset_bottom = 232.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6a0um")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6a0um")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dcimr")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_041fe")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_dcimr")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_041fe")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
